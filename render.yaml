@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: n8n
+    name: codemon
     env: docker
     region: frankfurt
     plan: free
@@ -11,33 +11,20 @@ services:
       - key: DB_TYPE
         value: postgresdb
       - key: DB_POSTGRESDB_HOST
-        fromDatabase:
-          name: n8nDB
-          property: host
+        value: ep-wild-silence-a55hpbl1-pooler.us-east-2.aws.neon.tech
       - key: DB_POSTGRESDB_DATABASE
-        fromDatabase:
-          name: n8nDB
-          property: database
+        value: neondb
       - key: DB_POSTGRESDB_PORT
-        fromDatabase:
-          name: n8nDB
-          property: port
+        value: 5432
       - key: DB_POSTGRESDB_USER
-        fromDatabase:
-          name: n8nDB
-          property: user
+        value: neondb_owner
       - key: DB_POSTGRESDB_PASSWORD
-        fromDatabase:
-          name: n8nDB
-          property: password
+        value: npg_ElPJAX6hdBK7
+      - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
+        value: 'false'
       - key: PORT
         value: 5678
       - key: N8N_LOG_LEVEL
         value: info
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
-
-databases:
-  - name: n8nDB
-    region: frankfurt # optional (defaults to oregon)
-    plan: free
