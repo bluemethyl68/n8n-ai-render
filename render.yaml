@@ -1,8 +1,6 @@
 services:
   - type: web
     name: codemon
-    env: docker
-    region: frankfurt
     plan: free
     branch: main
     numInstances: 1
