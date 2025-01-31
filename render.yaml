@@ -1,6 +1,7 @@
 services:
   - type: web
     name: codemon
+    env: docker
     plan: free
     branch: main
     numInstances: 1
